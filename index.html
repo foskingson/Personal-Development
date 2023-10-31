@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Trouble777의 자기개발 </title>
+    <meta charset="utf-8">
+    <!-- style내부는 css코드 --> 
+    <!-- style내부에 a, h1과 같은 태그선택자는 다른 class나 id 선택자가 있으면 우선순위에서 밀림-->
+    <style>
+        a {
+            color: red;
+            text-decoration: none;
+            font-size: 30px;
+            transition: font-size 0.3s, color 0.3s;
+        }
+        a:visited {
+            color: blue;
+        }
+        a:active {
+            color: black    ;
+            font-size: 35px;
+        }
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            
+        }
+        .ready {    
+            color: gray;
+
+        }
+    </style> <!-- class 선택자는 앞에 .을 붙여줘야함 / id 선택자 앞에는 #을 붙여줘야함 1개의 태그에 2개 다 적용되면 id태그가 적용됨-->
+</head>
+
+<body>
+    <h1>Trouble777의 자기개발 </h1>
+    <ol>
+        <li><a href="Stu_1.html">코딩 일지</a></li>
+        <li><a href="Stu_2.html"> 헬스 일지</a></li>
+        <li class="ready">운전 일지 (개발중....)</li> <!-- class는 html의 속성 + id도 html의 속성 id태그는 무조건 1개에만 사용가능 -->
+    </ol>
+    <!-- 라이브리 시티 설치 코드 댓글기능-->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81OTEzNy8zNTU5OQ==">
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+
+                if (typeof LivereTower === 'function') { return; }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
+    </div>
+    <!-- 시티 설치 코드 끝 -->
+</body>
+
+
+</html>
