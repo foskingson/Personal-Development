@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tetris</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="tetrisCanvas" width="300" height="600"></canvas>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('tetrisCanvas');
+      const context = canvas.getContext('2d');
+
+      const COLS = 10;
+      const ROWS = 20;
+      const BLOCK_SIZE = 30;
+
+      const colors = [
+        'cyan', 'blue', 'orange', 'yellow', 'green', 'purple', 'red'
+      ];
+
+      let board = Array.from({ length: ROWS }, () => Array(COLS).fill(null));
+
+      function drawSquare(x, y, color) {
+        context.fillStyle = color;
+        context.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+        context.strokeStyle = '#fff';
+        context.strokeRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+      }
+
+      function drawBoard() {
+        for (let row = 0; row < ROWS; row++) {
+          for (let col = 0; col < COLS; col++) {
+            if (board[row][col]) {
+              drawSquare(col, row, board[row][col]);
+            }
+          }
+        }
+      }
+
+      function draw() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        drawBoard();
+        drawPiece();
+      }
+
+      function drawPiece() {
+        for (let row = 0; row < piece.shape.length; row++) {
+          for (let col = 0; col < piece.shape[row].length; col++) {
+            if (piece.shape[row][col]) {
+              drawSquare(piece.x + col, piece.y + row, piece.color);
+            }
+          }
+        }
+      }
+
+      function movePieceDown() {
+        piece.y++;
+        if (collision()) {
+          piece.y--;
+          mergePiece();
+          spawnPiece();
+        }
+      }
+
+      function movePieceLeft() {
+        piece.x--;
+        if (collision()) {
+          piece.x++;
+        }
+      }
+
+      function movePieceRight() {
+        piece.x++;
+        if (collision()) {
+          piece.x--;
+        }
+      }
+
+      function rotatePiece() {
+        const originalShape = piece.shape;
+        piece.shape = rotateMatrix(piece.shape);
+        if (collision()) {
+          piece.shape = originalShape;
+        }
+      }
+
+      function rotateMatrix(matrix) {
+        const N = matrix.length - 1;
+        const result = matrix.map((row, i) =>
+          row.map((val, j) => matrix[N - j][i])
+        );
+        return result;
+      }
+
+      function collision() {
+        for (let row = 0; row < piece.shape.length; row++) {
+          for (let col = 0; col < piece.shape[row].length; col++) {
+            if (piece.shape[row][col] &&
+              (board[piece.y + row] && board[piece.y + row][piece.x + col]) !== null) {
+              return true;
+            }
+          }
+        }
+        return false;
+      }
+
+      function mergePiece() {
+        for (let row = 0; row < piece.shape.length; row++) {
+          for (let col = 0; col < piece.shape[row].length; col++) {
+            if (piece.shape[row][col]) {
+              board[piece.y + row][piece.x + col] = piece.color;
+            }
+          }
+        }
+        checkForLines();
+      }
+
+      function checkForLines() {
+        for (let row = ROWS - 1; row >= 0; row--) {
+          if (board[row].every(cell => cell !== null)) {
+            board.splice(row, 1);
+            board.unshift(Array(COLS).fill(null));
+          }
+        }
+      }
+
+      function spawnPiece() {
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        const randomShape = getRandomShape();
+        piece = {
+          shape: randomShape,
+          x: Math.floor(COLS / 2) - Math.floor(randomShape[0].length / 2),
+          y: 0,
+          color: randomColor,
+        };
+        if (collision()) {
+          // Game over, reset the board
+          board = Array.from({ length: ROWS }, () => Array(COLS).fill(null));
+        }
+      }
+
+      function getRandomShape() {
+        const shapes = [
+          [[1, 1, 1, 1]],
+          [[1, 1, 1], [1]],
+          [[1, 1, 1], [0, 0, 1]],
+          [[1, 1, 1], [1, 0]],
+          [[1, 1], [1, 1]],
+          [[1, 1, 1], [0, 1]],
+          [[1, 1, 1], [0, 1, 0]],
+        ];
+        return shapes[Math.floor(Math.random() * shapes.length)];
+      }
+
+      let piece = {};
+      spawnPiece();
+      setInterval(() => {
+        movePieceDown();
+        draw();
+      }, 500);
+
+      document.addEventListener('keydown', (event) => {
+        switch (event.code) {
+          case 'ArrowLeft':
+            movePieceLeft();
+            break;
+          case 'ArrowRight':
+            movePieceRight();
+            break;
+          case 'ArrowDown':
+            movePieceDown();
+            break;
+          case 'ArrowUp':
+            rotatePiece();
+            break;
+        }
+        draw();
+      });
+    });
+  </script>
+</body>
+</html>

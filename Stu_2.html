@@ -4,98 +4,102 @@
 <head> <!-- body를 설명하는 태그는 head-->
     <meta charset="utf-8">
     <title> 헬스해야지</title>
-
+    <script src="ScreenColor.js"></script>
 </head>
 
-    <body> <!-- 본문은 body 태그 -->
-        <h1>헬스</h1>
-        <strong><u>운동초보의 길....</u></strong> <!-- 웹열기 alt+b  -->
+<body> <!-- 본문은 body 태그 -->
+    <h1>헬스</h1>
+    <strong><u>운동초보의 길....</u></strong> <!-- 웹열기 alt+b  -->
+    <input type="button" value="night" onclick="
+        nightDay_bu(this); // this값을 매개변수로 주지 않으면 제대로 작동하지 않음
 
-        <!-- p : 글의 단락을 나누는 태그 , br : 줄바꿈 태그  -->
-        <!-- 저작권이 안걸리는 좋은 이미지들을 찾을수 있는 사이트 : "unsplash"-->
+ ">
+   
+    <!-- p : 글의 단락을 나누는 태그 , br : 줄바꿈 태그  -->
+    <!-- 저작권이 안걸리는 좋은 이미지들을 찾을수 있는 사이트 : "unsplash"-->
 
-        <ul>
-            <li>체스트프레스</li>
-            <li>숄더프레스</li>
-            <li>렛풀다운</li>
-            <li>레그익스텐션</li>
-            <li>레그컬</li>
-        </ul> <!-- 리스트들의 그룹을 나누는 태그 : ul / ul대신 ol을 쓰면 각 앞에 순번이 적혀져서 나옴 -->
-        <!--리스트를 나타내는 태그: li -->
+    <ul>
+        <li>체스트프레스</li>
+        <li>숄더프레스</li>
+        <li>렛풀다운</li>
+        <li>레그익스텐션</li>
+        <li>레그컬</li>
+    </ul> <!-- 리스트들의 그룹을 나누는 태그 : ul / ul대신 ol을 쓰면 각 앞에 순번이 적혀져서 나옴 -->
+    <!--리스트를 나타내는 태그: li -->
 
-        <table>
-            <tr>
-                <td>1일차</td>
-                <td>완료</td>
-            </tr>
-            <tr>
-                <td>2일차</td>
-                <td>완료</td>
-            </tr>
-            <tr>
-                <td>3일차</td>
-                <td>미완료</td>
-            </tr>
-        </table> <!-- 표를 나타내는 태그 : table / tr태그를 통해 위아래로 추가할수 있고 td태그를 통해 좌우로 추가할수 있다-->
+    <table>
+        <tr>
+            <td>1일차</td>
+            <td>완료</td>
+        </tr>
+        <tr>
+            <td>2일차</td>
+            <td>완료</td>
+        </tr>
+        <tr>
+            <td>3일차</td>
+            <td>미완료</td>
+        </tr>
+    </table> <!-- 표를 나타내는 태그 : table / tr태그를 통해 위아래로 추가할수 있고 td태그를 통해 좌우로 추가할수 있다-->
 
-        <p style="margin-top: 50;">
-        <h3>1. 체스트프레스</h3> <!-- 태그와 태그사이의 여백 css문법 margin-->
-        무게를 조절하여 자신의 수준에 맞게 운동 할 수 있다.<br>
-        특정근육을 집중적으로 발달시킬수 있어 가슴근육을 타겟팅하여 강화할 수 있다. <br>
-        보다 안전하고 안정적인 운동이다. <br>
-        <!-- html 태그의 속성을 추가 src-->
-        <img
-            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MTNfMTAx%2FMDAxNjk0NjA0NTQ4MDg1.p0iXqzURgmVt7h6DbuUnTBIm_jRy-8MhPKFRyTmsv38g.Jh3uFEBbN1o_75AbGEC77qRR5Ri2fvqH-YOSmcc52XQg.PNG.yourbody2306%2Fimage.png&type=a340">
-        </p><br>
-        
-
-        <p>
-        <h3>2. 숄더프레스</h3>
-        볼륨감있는 어깨를 위한 헬스장 기구<br>
-        말그대로 어깨로 밀어내는 운동이며 삼각근과 함께 삼두근도 쓰이는 운동이다. <br>
-        <img
-            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MDVfMTcz%2FMDAxNjkzODM5OTQ5NzMx.8tnhWDaZpHLvSScmKhUu0uNZq_ksfLfP07Oi7_X1sbwg.k6vHs3SW52aV8wAUJZwddPyosaBuQNH9umCQV-_U5x8g.JPEG.samplaning%2FScreenshot%25A3%25DF20230905%25A3%25DF000331%25A3%25DFGallery.jpg&type=a340">
-        </p><br>
+    <p style="margin-top: 50;">
+    <h3>1. 체스트프레스</h3> <!-- 태그와 태그사이의 여백 css문법 margin-->
+    무게를 조절하여 자신의 수준에 맞게 운동 할 수 있다.<br>
+    특정근육을 집중적으로 발달시킬수 있어 가슴근육을 타겟팅하여 강화할 수 있다. <br>
+    보다 안전하고 안정적인 운동이다. <br>
+    <!-- html 태그의 속성을 추가 src-->
+    <img
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MTNfMTAx%2FMDAxNjk0NjA0NTQ4MDg1.p0iXqzURgmVt7h6DbuUnTBIm_jRy-8MhPKFRyTmsv38g.Jh3uFEBbN1o_75AbGEC77qRR5Ri2fvqH-YOSmcc52XQg.PNG.yourbody2306%2Fimage.png&type=a340">
+    </p><br>
 
 
-        <p>
-        <h3>3. 렛풀다운</h3>
-        광배근으로 하는 풀 다운 운동<br>
-        턱걸이를 하듯 어깨보다 좀 더 넓게 바를 잡은 다음, 상체를 뒤로 젖히고 팔이 아닌 등의 힘으로 당겨 내려오는 방식<br>
-        턱걸이와 가동부위가 거의 같고 좁게 잡으면 광배근 안쪽, 넓게잡으면 상부와 바깥쪽이 발달된다.
-        초보자라면 넓은 그립으로 하는 것을 추천<br>
-        <img
-            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MjFfNTkg%2FMDAxNjk1Mjc2ODA0MTU5.SiX_7CFE0M3X6y1gdIT0IR0MHowMEHf4lXHxtU4EO4wg.ATQhCxwamxALcskm43zkyCC0CTE-cQW96wnm3q4z8r4g.PNG.sponess_hwayang%2Fimage.png&type=a340">
-        </p><br>
-
-        <p>
-        <h3>4. 레그익스텐션</h3>
-        허벅지 안쪽 근육 활성화에 효과적인 운동<br>
-        자세를 잡고 다리가 일자로 펴질때 까지 위로 올리는 방식<br>
-        가능한 자극이 허벅지 위쪽에 오도록 하고 다리를 차는게 아니라 밀어올리는 느낌으로 한다.<br>
-        <img
-            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA4MTFfMTEz%2FMDAxNjkxNzQ5Njc4ODIx.AbeJfy3L8YwubZ-0Y1ECws5LAvrS1nAy6a-3ZcoKZJIg.kiGN5gvz8FZ0g-uJsqr0-MnS4iqNNjTsVJefh8P4ke8g.PNG.dovmfxmfl2019%2Fimage.png&type=a340">
-        </p><br>
+    <p>
+    <h3>2. 숄더프레스</h3>
+    볼륨감있는 어깨를 위한 헬스장 기구<br>
+    말그대로 어깨로 밀어내는 운동이며 삼각근과 함께 삼두근도 쓰이는 운동이다. <br>
+    <img
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MDVfMTcz%2FMDAxNjkzODM5OTQ5NzMx.8tnhWDaZpHLvSScmKhUu0uNZq_ksfLfP07Oi7_X1sbwg.k6vHs3SW52aV8wAUJZwddPyosaBuQNH9umCQV-_U5x8g.JPEG.samplaning%2FScreenshot%25A3%25DF20230905%25A3%25DF000331%25A3%25DFGallery.jpg&type=a340">
+    </p><br>
 
 
+    <p>
+    <h3>3. 렛풀다운</h3>
+    광배근으로 하는 풀 다운 운동<br>
+    턱걸이를 하듯 어깨보다 좀 더 넓게 바를 잡은 다음, 상체를 뒤로 젖히고 팔이 아닌 등의 힘으로 당겨 내려오는 방식<br>
+    턱걸이와 가동부위가 거의 같고 좁게 잡으면 광배근 안쪽, 넓게잡으면 상부와 바깥쪽이 발달된다.
+    초보자라면 넓은 그립으로 하는 것을 추천<br>
+    <img
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MjFfNTkg%2FMDAxNjk1Mjc2ODA0MTU5.SiX_7CFE0M3X6y1gdIT0IR0MHowMEHf4lXHxtU4EO4wg.ATQhCxwamxALcskm43zkyCC0CTE-cQW96wnm3q4z8r4g.PNG.sponess_hwayang%2Fimage.png&type=a340">
+    </p><br>
 
-        <p>
-        <h3>5. 레그컬</h3>
-        엎드려 누운 자세에서 다리를 굽혀하는 운동<br>
-        주근육은 햄스트링 근육이고 보조근은 대퇴 사두근 등이다.<br>
-        <img
-            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MDRfMTk2%2FMDAxNjkzNzkxNjMxMjQ4.hl8mL-E0rfRDxQKiDenpvrXNtg7hQgZXqPJACxdrnNYg.FxPAkCrLTeya5Guc58iJ8FPGjUfPAMi5djSs2huFnmsg.PNG.bodycs%2F%25C8%25AD%25B8%25E9_%25C4%25B8%25C3%25B3_2023-08-30_105514.png&type=l340_165">
-        </p><br>
+    <p>
+    <h3>4. 레그익스텐션</h3>
+    허벅지 안쪽 근육 활성화에 효과적인 운동<br>
+    자세를 잡고 다리가 일자로 펴질때 까지 위로 올리는 방식<br>
+    가능한 자극이 허벅지 위쪽에 오도록 하고 다리를 차는게 아니라 밀어올리는 느낌으로 한다.<br>
+    <img
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA4MTFfMTEz%2FMDAxNjkxNzQ5Njc4ODIx.AbeJfy3L8YwubZ-0Y1ECws5LAvrS1nAy6a-3ZcoKZJIg.kiGN5gvz8FZ0g-uJsqr0-MnS4iqNNjTsVJefh8P4ke8g.PNG.dovmfxmfl2019%2Fimage.png&type=a340">
+    </p><br>
 
 
-        <a href="https://github.com/" title="깃허브">깃 허브</a> <!--a href="" 를 통해 링크를 걸수 있다.-->
 
-        <h1>This is heading 1</h1>
-        <h2>This is heading 2</h2>
-        <h3>This is heading 3</h3>
-        <h4>This is heading 4</h4>
-        <h5>This is heading 5</h5>
-        <h6>This is heading 6</h6>
-    </body>
+    <p>
+    <h3>5. 레그컬</h3>
+    엎드려 누운 자세에서 다리를 굽혀하는 운동<br>
+    주근육은 햄스트링 근육이고 보조근은 대퇴 사두근 등이다.<br>
+    <img
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MDRfMTk2%2FMDAxNjkzNzkxNjMxMjQ4.hl8mL-E0rfRDxQKiDenpvrXNtg7hQgZXqPJACxdrnNYg.FxPAkCrLTeya5Guc58iJ8FPGjUfPAMi5djSs2huFnmsg.PNG.bodycs%2F%25C8%25AD%25B8%25E9_%25C4%25B8%25C3%25B3_2023-08-30_105514.png&type=l340_165">
+    </p><br>
+
+
+    <a href="https://github.com/" title="깃허브">깃 허브</a> <!--a href="" 를 통해 링크를 걸수 있다.-->
+
+    <h1>This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <h3>This is heading 3</h3>
+    <h4>This is heading 4</h4>
+    <h5>This is heading 5</h5>
+    <h6>This is heading 6</h6>
+</body>
 
 </html>

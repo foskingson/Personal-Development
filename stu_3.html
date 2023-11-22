@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> </title>
+    <style>
+        div {
+            border: 10px solid solid green;
+            font-size: 60px;
+        }
+
+        @media(max-width:800px) {
+            div {
+                display: none;
+            }
+        }
+
+        a{
+            color:blue;
+        }
+    </style>
+
+<!-- 객체는 .앞에 오는 구문이고 .뒤에 오는 구문을 해당객체의 함수라고 한다 EX) document.querySelector   document는 객체 querySelector는 이것의 함수-->
+<script>
+    function nightDay_bu(self){ //밤낮모드 버튼 함수
+        var target = document.querySelector('.bu');
+        
+        
+        if(self.value=='night'){
+            target.style.backgroundColor='black';
+            target.style.color='white';
+            self.value='day'; // 여기서 this는 자신이 속한 버튼을 참조함 버튼에 id값을 만든후 document.querySelector('#id값')로 대체가능
+            sel_color('powderblue');
+            
+        } else{
+            target.style.backgroundColor='white';
+            target.style.color='black';
+            self.value='night';
+            sel_color('blue');
+        }
+    }
+
+    function sel_color(color){
+        var i=0;
+            var site=document.querySelectorAll('a');
+            while(i<site.length){
+                site[i].style.color=color;
+                i=i+1;
+            }
+    }
+
+
+
+</script>
+</head>
+
+<body class="bu"> <!--최대한 중복 없애기-->
+    
+    <input type="button" value="night" onclick="  
+        var target = document.querySelector('.bu');
+        var site=document.querySelectorAll('a');
+        
+        if(this.value=='night'){
+            target.style.backgroundColor='black';
+            target.style.color='white';
+            this.value='day'; // 여기서 this는 자신이 속한 버튼을 참조함 버튼에 id값을 만든후 document.querySelector('#id값')로 대체가능
+            var i=0;
+            while(i<site.length){
+                site[i].style.color='powderblue';
+                i=i+1;
+            }
+        } else{
+            target.style.backgroundColor='white';
+            target.style.color='black';
+            this.value='night';
+            var i=0;
+            while(i<site.length){
+                site[i].style.color='blue';
+                i=i+1;
+            }
+        }
+">
+
+
+    <input type="button" value="night" onclick="
+        nightDay_bu(this); // this값을 매개변수로 주지 않으면 제대로 작동하지 않음
+
+">
+
+<ul>
+    <li><a href="index.html">메인</a></li>
+    <li><a href="Stu_2.html"> 헬스 기록</a></li>
+    <li class="ready">운전 기록 (개발중....)</li> <!-- class는 html의 속성 + id도 html의 속성 id태그는 무조건 1개에만 사용가능 -->
+</ul>
+
+<h1> Object </h1>
+<h2> Create</h2>
+<h4> .은 객체를 참조하게 해준다</h4>
+<script>
+    var coworkers={     //객체 생성
+        "programmer":"egoing",  //객체안의 변수는 프로퍼티
+        "designer":"leezche"
+    };
+    var worker=["programmer","designer"];
+    document.write("programmer : " + coworkers.programmer+"<br>"); 
+    document.write("designer : " + coworkers.designer+"<br>"); 
+</script>
+
+
+<script>    // 객체 반복
+    for(var a in coworkers){
+        document.write(coworkers[a]+'<br>');
+    }
+</script>
+
+<script> // 객체에 소속된 함수인 메소드
+    coworkers.showAll = function(){
+        for(var a in coworkers){
+            document.write(coworkers[a]+'<br>');
+        }
+    }
+
+    coworkers.showAll();
+
+</script>
+
+</body>
+
+</html>
