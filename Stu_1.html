@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title> 코딩 공부 일지 </title>
-   
+
     <style>
         h1 {
             color: yellowgreen;
@@ -28,10 +28,35 @@
             font-weight: bold;
             color: green;
         }
-
-       
-        
     </style>
+
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1565464800930760',
+                cookie: true,
+                xfbml: true,
+                version: 'v18.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+            FB.getLoginStatus(function(response) {
+                console.log(response)
+                statusChangeCallback(response);
+            });
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 </head>
 
 <body>
