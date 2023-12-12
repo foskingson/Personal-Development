@@ -42,18 +42,18 @@
 
             FB.AppEvents.logPageView();
 
-            var callback=function(response){
+            var callback = function (response) {
                 console.log(response);
-                statusChangeCallback(response);
+                //statusChangeCallback(response);
 
-                if(response.status==='connected'){
-                    document.querySelector('#authBtn').value='logout';
-                }else{
-                    document.querySelector('#authBtn').value='login'
+                if (response.status === 'connected') {
+                    document.querySelector('#authBtn').value = 'logout';
+                } else {
+                    document.querySelector('#authBtn').value = 'login'
                 }
             }
             FB.getLoginStatus(callback)
-                
+
 
         };
 
@@ -64,10 +64,20 @@
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
+
+
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
     </script>
 </head>
 
 <body>
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
     <input type="button" id=authBtn value="login..." onclick="
         if(this.value==='login'){
             FB.login(function(res){
@@ -78,6 +88,8 @@
                 console.log(`logout=> ${res}`)
             })
         }
+
+
     ">
 
     <h1> 개발 초보 코딩 공부</h1>
