@@ -69,7 +69,16 @@
 
 <body>
     <input type="button" id=authBtn value="login..." onclick="
-        ">
+        if(this.value==='login'){
+            FB.login(function(res){
+                console.log(`login=> ${res}`)
+            })
+        }else{
+            FB.logout(function(res){
+                console.log(`logout=> ${res}`)
+            })
+        }
+    ">
 
     <h1> 개발 초보 코딩 공부</h1>
     <a href="https://foskingson.github.io/Personal-Development/"> 메인 페이지</a><br>
