@@ -44,7 +44,13 @@
 
             var callback=function(response){
                 console.log(response);
-                statusChangeCallback(response);
+                //statusChangeCallback(response);
+
+                if(response.status==='connected'){
+                    document.querySelector('#authBtn').value='logout';
+                }else{
+                    document.querySelector('#authBtn').value='login'
+                }
             }
             FB.getLoginStatus(callback)
                 
@@ -62,6 +68,9 @@
 </head>
 
 <body>
+    <input type="button" id=authBtn value="login..." onclick="
+        ">
+
     <h1> 개발 초보 코딩 공부</h1>
     <a href="https://foskingson.github.io/Personal-Development/"> 메인 페이지</a><br>
     <div>보이는 것처럼 h1과 같이 화면전체를 사용하는 태그는 블록태그 / a와 같이 자신의 크기만큼을 사용하는 태그를 인라인 태그라고 한다</div>
