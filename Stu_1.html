@@ -44,7 +44,7 @@
 
             var callback=function(response){
                 console.log(response);
-                //statusChangeCallback(response);
+                statusChangeCallback(response);
 
                 if(response.status==='connected'){
                     document.querySelector('#authBtn').value='logout';
